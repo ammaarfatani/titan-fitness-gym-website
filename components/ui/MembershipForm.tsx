@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { FaCheckCircle } from 'react-icons/fa';
 
