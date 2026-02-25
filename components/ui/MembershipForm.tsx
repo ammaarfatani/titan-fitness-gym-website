@@ -2,8 +2,13 @@
 
 import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import ReCAPTCHA from 'react-google-recaptcha';
 import { FaCheckCircle } from 'react-icons/fa';
+import dynamic from 'next/dynamic';
+
+const ReCAPTCHA = dynamic(
+  () => import('react-google-recaptcha'),
+  { ssr: false }
+)
 
 interface Plan {
   name: string;
@@ -25,7 +30,7 @@ export default function MembershipForm({ plans }: { plans: Plan[] }) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const recaptchaRef = useRef<any>(null);
 
   const validate = () => {
     const errs: Record<string, string> = {};

@@ -2,8 +2,13 @@
 
 import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import ReCAPTCHA from 'react-google-recaptcha';
 import { FaPaperPlane, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
+import dynamic from 'next/dynamic';
+
+const ReCAPTCHA = dynamic(
+  () => import('react-google-recaptcha'),
+  { ssr: false }
+);
 
 interface FormData {
   name: string;
@@ -31,7 +36,7 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const recaptchaRef = useRef<any>(null);
 
   const validate = (): FormErrors => {
     const errs: FormErrors = {};
