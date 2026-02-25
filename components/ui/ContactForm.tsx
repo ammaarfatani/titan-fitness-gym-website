@@ -4,11 +4,15 @@ import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { FaPaperPlane, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 import dynamic from 'next/dynamic';
+import type ReCAPTCHAType from 'react-google-recaptcha';
 
 const ReCAPTCHA = dynamic(
-  () => import('react-google-recaptcha'),
+  async () => {
+    const mod = await import('react-google-recaptcha');
+    return mod.default;
+  },
   { ssr: false }
-);
+) as typeof ReCAPTCHAType;
 
 interface FormData {
   name: string;
@@ -36,7 +40,7 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const recaptchaRef = useRef<any>(null);
+  const recaptchaRef = useRef<ReCAPTCHAType | null>(null);
 
   const validate = (): FormErrors => {
     const errs: FormErrors = {};

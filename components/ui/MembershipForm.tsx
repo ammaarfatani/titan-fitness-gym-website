@@ -4,11 +4,15 @@ import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { FaCheckCircle } from 'react-icons/fa';
 import dynamic from 'next/dynamic';
+import type ReCAPTCHAType from 'react-google-recaptcha';
 
 const ReCAPTCHA = dynamic(
-  () => import('react-google-recaptcha'),
+  async () => {
+    const mod = await import('react-google-recaptcha');
+    return mod.default;
+  },
   { ssr: false }
-)
+) as typeof ReCAPTCHAType;
 
 interface Plan {
   name: string;
@@ -30,7 +34,7 @@ export default function MembershipForm({ plans }: { plans: Plan[] }) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const recaptchaRef = useRef<any>(null);
+  const recaptchaRef = useRef<ReCAPTCHAType | null>(null); 
 
   const validate = () => {
     const errs: Record<string, string> = {};
