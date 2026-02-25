@@ -1,0 +1,17 @@
+{
+  "name": "Titan Fitness Gym",
+  "short_name": "Titan Gym",
+  "description": "Karachi's Premier Fitness Destination",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#E63946",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

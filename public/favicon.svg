@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" fill="#E63946"/>
+  <!-- Dumbbell icon -->
+  <rect x="6" y="28" width="8" height="8" rx="1" fill="white"/>
+  <rect x="10" y="24" width="4" height="16" rx="1" fill="white"/>
+  <rect x="50" y="28" width="8" height="8" rx="1" fill="white"/>
+  <rect x="50" y="24" width="4" height="16" rx="1" fill="white"/>
+  <rect x="14" y="30" width="36" height="4" rx="2" fill="white"/>
+  <!-- T letter overlay -->
+  <text x="32" y="46" font-family="Arial Black, sans-serif" font-weight="900" font-size="24" fill="#E63946" text-anchor="middle" dominant-baseline="middle" opacity="0.9">T</text>
+</svg>
