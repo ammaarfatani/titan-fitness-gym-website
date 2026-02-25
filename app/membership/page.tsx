@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     'Choose the perfect Titan Fitness Gym membership plan in Karachi. Basic, Standard & Premium packages with flexible pricing. Try us free for 3 days!',
 };
 
-export const plans = [
+ const plans = [
   {
     name: 'Basic',
     subtitle: 'Perfect for Starters',
